@@ -91,6 +91,9 @@ from espnet2.utils.types import (
 )
 from espnet2.utils.yaml_no_alias_safe_dump import yaml_no_alias_safe_dump
 
+from IPython import embed
+
+
 try:
     import wandb
 except Exception:
@@ -1401,6 +1404,8 @@ class AbsTask(ABC):
             torch.backends.cudnn.allow_tf32 = True
             logging.info("Using TensorFloat32 at the cost of matmul precision")
 
+
+
         if (
             args.collect_stats
             and getattr(args, "model_conf", None) is not None
@@ -1410,7 +1415,9 @@ class AbsTask(ABC):
             logging.info("Skipping model building in collect_stats stage.")
         else:
             # 2. Build model
+            embed()
             model = cls.build_model(args=args)
+
             if not isinstance(model, AbsESPnetModel):
                 raise RuntimeError(
                     f"model must inherit {AbsESPnetModel.__name__},"
