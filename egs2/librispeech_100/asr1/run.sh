@@ -7,7 +7,8 @@ set -o pipefail
 
 train_set="train_clean_100"
 valid_set="dev"
-test_sets="test_clean test_other dev_clean dev_other"
+test_sets="dev_other"
+#"test_clean test_other dev_clean dev_other"
 
 asr_config=conf/train_asr.yaml
 inference_config=conf/decode_asr.yaml
@@ -20,7 +21,7 @@ inference_config=conf/decode_asr.yaml
     --inference_nj 2 \
     --nbpe 5000 \
     --max_wav_duration 30 \
-    --speed_perturb_factors "0.9 1.0 1.1" \
+    --speed_perturb_factors "1.0" \
     --audio_format "flac.ark" \
     --feats_type raw \
     --use_lm false \

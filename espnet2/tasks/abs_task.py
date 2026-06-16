@@ -1494,6 +1494,7 @@ class AbsTask(ABC):
                 model = None
                 logging.info("Skipping collect_feats in collect_stats stage.")
 
+
             collect_stats(
                 model=model,
                 train_iter=cls.build_streaming_iterator(

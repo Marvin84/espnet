@@ -2,6 +2,8 @@ import argparse
 import logging
 from typing import Callable, Collection, Dict, List, Optional, Tuple
 
+from IPython import embed
+
 import numpy as np
 import torch
 from typeguard import typechecked
